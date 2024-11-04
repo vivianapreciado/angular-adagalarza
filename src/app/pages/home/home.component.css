@@ -1,0 +1,14 @@
+.container-fluid.bg-primary{
+    background-color: black;
+}
+
+.container-fluid.py-5{
+    background-color: black;
+}
+
+footer
+{
+    margin-top:50px;
+    width:100%;
+    height:100px;
+}

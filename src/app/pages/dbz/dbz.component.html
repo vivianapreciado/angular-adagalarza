@@ -1,0 +1,121 @@
+
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Dragon Ball Z</h2>
+  
+    <div class="row mb-4">
+      <div class="col-md-8 mx-auto">
+          <div class="card-body">
+            <div class="row g-3">
+              
+              <!-- Búsqueda por nombre o ID -->
+              <div class="col-12"> <!-- Cambiar a col-12 para ocupar todo el ancho -->
+                <div class="input-group w-100"> <!-- Asegurarte de que el contenedor ocupe el ancho completo -->
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        [(ngModel)]="searchTerm"
+                        placeholder="Escribe el nombre del personaje..."
+                        (keyup.enter)="onSearch()">
+                    <button 
+                        class="btn btn-outline-secondary" 
+                        type="button"
+                        [disabled]="isLoading"
+                        (click)="onSearch()">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+  
+              <!-- Selector de raza
+              <div class="col-md-4">
+                <select 
+                  class="form-select" 
+                  [(ngModel)]="selectedRace"
+                  (change)="onSearch()">
+                  <option value="">Todas las razas</option>
+                  <option *ngFor="let race of availableRaces" [value]="race">
+                    {{race}}
+                  </option>
+                </select>
+              </div> -->
+  
+              <!-- Botón limpiar -->
+              <!-- <div class="col-md-2">
+                <button 
+                  *ngIf="searchTerm || selectedRace"
+                  class="btn btn-secondary w-100" 
+                  type="button"
+                  [disabled]="isLoading"
+                  (click)="clearSearch()">
+                  <i class="fas fa-times"></i> Limpiar
+                </button>
+              </div> -->
+            </div>
+          </div>
+      </div>
+    </div>
+  
+  
+    <!-- No results message -->
+    <div *ngIf="noResults && !isLoading" class="alert alert-info text-center my-4">
+      No se encontraron resultados para la búsqueda
+    </div>
+  
+    <!-- Results -->
+    <ng-container *ngIf="!isLoading && !noResults">
+      <app-pagination
+        *ngIf="!searchTerm && !selectedRace"
+        [currentPage]="currentPage"
+        [totalPages]="totalPages"
+        (pageChange)="onPageChange($event)">
+      </app-pagination>
+      
+      <dbz-cardz
+        [items]="characters"
+        (cardClick)="onCharacterSelect($event)">
+      </dbz-cardz>
+    
+      <app-pagination
+        *ngIf="!searchTerm && !selectedRace"
+        [currentPage]="currentPage"
+        [totalPages]="totalPages"
+        (pageChange)="onPageChange($event)">
+      </app-pagination>
+    </ng-container>
+  
+    <!-- Character Modal -->
+    <div class="modal fade" [class.show]="selectedCharacter" id="characterModal" tabindex="-1" 
+         [style.display]="selectedCharacter ? 'block' : 'none'">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{selectedCharacter?.name}}</h5>
+            <button type="button" class="btn-close" (click)="selectedCharacter = null"></button>
+          </div>
+          <div class="modal-body" *ngIf="selectedCharacter">
+           <div class="row">
+            <div class="col-md-6">
+              <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" class="img-fluid mb-3">
+            </div>
+         <div class="col-md-6">
+            <p><strong>Ki:</strong> {{selectedCharacter.ki}}</p>
+            <p><strong>Max Ki:</strong> {{selectedCharacter.maxKi}}</p>
+            <p><strong>Race:</strong> {{selectedCharacter.race}}</p>
+            <p><strong>Gender:</strong> {{selectedCharacter.gender}}</p>
+            <p><strong>Affiliation:</strong> {{selectedCharacter.affiliation}}</p>
+            <p><strong>Description:</strong> {{selectedCharacter.description}}</p>
+         </div>
+        </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="selectedCharacter = null">Cerrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+

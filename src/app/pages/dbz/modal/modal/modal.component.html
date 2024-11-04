@@ -1,0 +1,30 @@
+<div class="modal fade" #modalElement tabindex="-1" aria-labelledby="characterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="characterModalLabel">Detalles de {{selectedCharacter?.name}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="selectedCharacter = null"></button>
+            </div>
+            <div class="modal-body" *ngIf="selectedCharacter">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <img [src]="selectedCharacter.image || '#' " [alt]="selectedCharacter.name" class="img-fluid mb-3">
+                        <p><strong>Ki:</strong> {{selectedCharacter.ki}}</p>
+                        <p><strong>Max Ki:</strong> {{selectedCharacter.maxKi}}</p>
+                        <p><strong>Race:</strong> {{selectedCharacter.race}}</p>
+                        <p><strong>Gender:</strong> {{selectedCharacter.gender}}</p>
+                        <p><strong>Affiliation:</strong> {{selectedCharacter.affiliation}}</p>
+                        <p><strong>Description:</strong> {{selectedCharacter.description}}</p>
+                        <p><strong>Origin Planet:</strong> {{selectedCharacter.originPlanet.name}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Puedes agregar más detalles aquí si es necesario -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
