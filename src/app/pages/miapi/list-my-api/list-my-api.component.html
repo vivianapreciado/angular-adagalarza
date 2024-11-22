@@ -1,0 +1,217 @@
+<div class="container mt-4">
+  <!-- Título -->
+  <div class="row mb-4">
+    <div class=" coltext-center">
+      <h2 class="text-center mb-4"><b>Catálogo de fragancias</b></h2>
+    </div>
+  </div>
+  
+  <!-- Barra de búsqueda -->
+  <div class="row mb-4">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+       
+          <div class="row g-3">
+            <!-- Buscar por Nombre -->
+            <div class="col">
+              <div class="input-group">
+                <input type="text" 
+                       class="form-control" 
+                       [(ngModel)]="searchTerm" 
+                       placeholder="Buscar por nombre..."
+                       (keyup.enter)="onSearch()">
+                <button
+                       class="btn btn-outline-secondary" 
+                       type="button"
+                       style="background-color: #f8c8dc; color: white; border: none;"
+                       (click)="onSearch()">
+                       <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Botón Limpiar -->
+            <!-- <div class="col-md-2"> -->
+              <!-- <button *ngIf="searchTerm" 
+                      class="btn btn-secondary w-100" 
+                      type="button" 
+                      [disabled]="isLoading" 
+                      (click)="clearSearch()">
+                <i class="bi bi-x-circle"></i> Limpiar
+              </button>
+            </div> -->
+          </div>
+       
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Indicador de carga -->
+   <div *ngIf="isLoading" class="text-center my-5 d-flex justify-content-center align-items-center" style="height: 100vh;">
+     <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="200" height="200" style="shape-rendering: auto; display: block; background: rgb(255, 255, 255);" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g transform="translate(80,50)">
+      <g transform="rotate(0)">
+      <circle fill-opacity="1" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.875s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.875s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(71.21320343559643,71.21320343559643)">
+      <g transform="rotate(45)">
+      <circle fill-opacity="0.875" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.75s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.75s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(50,80)">
+      <g transform="rotate(90)">
+      <circle fill-opacity="0.75" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.625s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.625s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(28.786796564403577,71.21320343559643)">
+      <g transform="rotate(135)">
+      <circle fill-opacity="0.625" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.5s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.5s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(20,50.00000000000001)">
+      <g transform="rotate(180)">
+      <circle fill-opacity="0.5" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.375s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.375s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(28.78679656440357,28.786796564403577)">
+      <g transform="rotate(225)">
+      <circle fill-opacity="0.375" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.25s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.25s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(49.99999999999999,20)">
+      <g transform="rotate(270)">
+      <circle fill-opacity="0.25" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="-0.125s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="-0.125s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g transform="translate(71.21320343559643,28.78679656440357)">
+      <g transform="rotate(315)">
+      <circle fill-opacity="0.125" fill="#ff727d" r="6" cy="0" cx="0">
+        <animateTransform repeatCount="indefinite" dur="1s" keyTimes="0;1" values="1.5 1.5;1 1" begin="0s" type="scale" attributeName="transform"></animateTransform>
+        <animate begin="0s" values="1;0" repeatCount="indefinite" dur="1s" keyTimes="0;1" attributeName="fill-opacity"></animate>
+      </circle>
+      </g>
+      </g><g></g></g><!-- [ldio] generated by https://loading.io --></svg></span>
+  </div> 
+
+  <!-- Mensaje de no resultados -->
+  <div *ngIf="noResults && !isLoading" class="alert alert-info text-center my-4">
+    <i class="bi bi-info-circle"></i> No se encontraron resultados
+  </div>
+
+  <!-- Resultados -->
+  <div *ngIf="!isLoading && !noResults" class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <div *ngFor="let fragancia of paginatedFragancias" class="col">
+      <div 
+        class="card h-100 shadow-sm" 
+        data-bs-toggle="modal" 
+        data-bs-target="#fraganciaModal"
+        (click)="openDetailsModal(fragancia)"
+        style="cursor: pointer;"
+      >
+      
+      
+       <div class="img-container">
+        <img
+          [src]="fragancia.imagen || 'assets/default-perfume.jpg'" 
+          class="card-img-top" 
+          alt="{{fragancia.nombre}}"
+          onerror="this.src='assets/default-perfume.jpg'"
+        >
+       </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-bag-fill"></i> {{fragancia.nombre}}
+          </h5>
+          <p class="card-text">
+            <strong><i class="bi bi-award"></i> Marca:</strong> {{fragancia.marca}}
+          </p>
+          <p class="card-text text-truncate">
+            <strong><i class="bi bi-card-text"></i> Descripción:</strong> {{fragancia.descripcion}}
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-primary">
+              <i class="bi bi-currency-dollar me-1"></i>{{fragancia.precio | currency:'USD':'symbol':'1.0-0'}}
+            </span>
+            <small class="text-muted">
+              <i class="bi bi-box-seam"></i> Stock: {{fragancia.stock}}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paginación -->
+  <nav *ngIf="totalPages > 1" aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="changePage(currentPage - 1)" role="button">
+          <i class="bi bi-chevron-left"></i>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+          [class.active]="currentPage === i + 1">
+        <a class="page-link" (click)="changePage(i + 1)" role="button">{{i + 1}}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="changePage(currentPage + 1)" role="button">
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="fraganciaModal" tabindex="-1" aria-labelledby="fraganciaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fraganciaModalLabel">
+          <i class="bi bi-info-circle"></i> Detalles de la Fragancia
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div *ngIf="selectedFragancia" class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img 
+              [src]="selectedFragancia.imagen || 'assets/default-perfume.jpg'" 
+              class="img-fluid rounded" 
+              alt="{{selectedFragancia.nombre}}"
+              onerror="this.src='assets/default-perfume.jpg'"
+            >
+          </div>
+          <div class="col-md-6">
+            <h5><i class="bi bi-tag"></i> {{selectedFragancia.nombre}}</h5>
+            <p><strong><i class="bi bi-award"></i> Marca:</strong> {{selectedFragancia.marca}}</p>
+            <p><strong><i class="bi bi-card-text"></i> Descripción:</strong> {{selectedFragancia.descripcion}}</p>
+            <p><strong><i class="bi bi-currency-dollar"></i> Precio:</strong> {{selectedFragancia.precio | currency:'USD':'symbol':'1.0-0'}}</p>
+            <p><strong><i class="bi bi-box-seam"></i> Stock:</strong> {{selectedFragancia.stock}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="bi bi-x-circle"></i> Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
