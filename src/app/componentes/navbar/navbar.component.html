@@ -1,9 +1,9 @@
 <!-- Navegación Superior -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff3d20;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(32, 255, 218);">
   <div class="container">
     <!-- Logo/Nombre -->
     <a class="navbar-brand fw-bold" routerLink="/">
-      API <i class="bi bi-globe-americas"></i>
+      MUNDO API ---> Viviana Preciado👩🏽‍🏫
     </a>
 
     <!-- Botón hamburguesa para móvil -->
@@ -26,58 +26,58 @@
         <!-- Botón Home -->
         <li class="nav-item mx-2">
           <a
-            class="nav-link btn btn-outline-success btn-sm rounded-pill px-3"
+            class="nav-link btn btn-outline-warning btn-sm rounded-pill px-3"
             routerLink="/home"
             routerLinkActive="active"
           >
-            <i class="bi bi-house-heart-fill"></i> Home
+            <i class="bi bi-house-pool-fill"></i> Inicio⚙
           </a>
         </li>
 
         <!-- API DBZ -->
         <li class="nav-item mx-2">
           <a
-            class="nav-link btn btn-outline-success btn-sm rounded-pill px-3"
+            class="nav-link btn btn-outline-danger btn-sm rounded-pill px-3"
             routerLink="/dbz"
             routerLinkActive="active"
           >
-            <i class="fas fa-fist-raised me-1"></i> API DBZ
+          DBZ💥
           </a>
         </li>
 
         <!-- API Pokémon -->
         <li class="nav-item mx-2">
           <a
-            class="nav-link btn btn-outline-success btn-sm rounded-pill px-3"
+            class="nav-link btn btn-outline-warning btn-sm rounded-pill px-3"
             routerLink="/pokemon"
             routerLinkActive="active"
           >
-            <i class="fas fa-paw me-1"></i> API Pokémon
+          Pokémon🎃
           </a>
         </li>
 
         <!-- API Cócteles -->
         <li class="nav-item mx-2">
           <a
-            class="nav-link btn btn-outline-success btn-sm rounded-pill px-3"
+            class="nav-link btn btn-outline-danger btn-sm rounded-pill px-3"
             routerLink="/cocteles"
             routerLinkActive="active"
           >
-            <i class="fas fa-glass-martini-alt me-1"></i> API Cócteles
+          Cócteles🥂
           </a>
         </li>
 
         <!-- Menú desplegable Mi API -->
         <li class="nav-item dropdown mx-2">
           <a
-            class="nav-link dropdown-toggle btn btn-outline-success btn-sm rounded-pill px-3"
+            class="nav-link dropdown-toggle btn btn-outline-primary btn-sm rounded-pill px-3"
             href="#"
             id="miApiDropdown"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <i class="fas fa-tools me-1"></i> Mi API
+          API's🔗
           </a>
           <ul
             class="dropdown-menu dropdown-menu-end animate slideIn shadow"
@@ -96,6 +96,10 @@
           </ul>
         </li>
       </ul>
+
+
+      <!-- Espacio entre el menú y el botón de login/logout -->
+      <div class="flex-grow-3"></div>
 
       <!-- Botón Login/Logout -->
       <ng-container *ngIf="user$ | async as user; else showLogin">
@@ -125,6 +129,12 @@
           <i class="bi bi-google"></i> Login
         </button>
       </ng-template>
+
+
+
+
+
+
     </div>
   </div>
 </nav>
